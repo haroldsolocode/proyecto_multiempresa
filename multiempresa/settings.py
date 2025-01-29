@@ -79,8 +79,15 @@ WSGI_APPLICATION = 'multiempresa.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',  # Cambiamos SQLite por MySQL
+        'NAME': 'db_multiempresa',  # Nombre de la base de datos en MySQL
+        'USER': 'root',       # Usuario de MySQL
+        'PASSWORD': '', # Contraseña de MySQL
+        'HOST': 'localhost',        # Dirección del servidor MySQL (usa IP si es remoto)
+        'PORT': '3306',             # Puerto de MySQL (3306 por defecto)
+        'OPTIONS':{
+        'init_command': "SET sql_mode= 'STRICT_TRANS_TABLES'",
+        },
     }
 }
 
